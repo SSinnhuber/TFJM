@@ -1,0 +1,224 @@
+body
+{
+    font-family: 'DejaVu Sans', 'Trebuchet MS', sans-serif;
+	font-size: 1em;
+    margin: 0 0 0 0;
+}
+
+/* header */
+
+header
+{
+    display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+	margin: 0 0 30px 0 ;
+}
+
+#titre_principal
+{
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+	color: #FFFFFF;
+	font-family: 'Rokkitt', 'DejaVu Sans', 'Trebuchet MS', sans-serif;
+	background-color: #003366;
+	font-size: 1.3em;
+}
+
+#titre_principal img
+{
+	margin: 15px 15px 15px 70px;
+}
+
+header h1
+{
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 40px 0 0 10px;
+}
+
+/* header -> menu */
+
+nav
+{
+	background-color: #F2F1EC;
+	display: flex;
+    flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+	flex-direction:row 
+}
+
+nav li
+{
+    margin-right: 40px;
+}
+nav a
+{
+	color: black;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-weight: normal;
+}
+nav a:hover
+{
+    border-bottom: 3px solid;
+}
+#inscription
+{
+	display: flex;
+	flex-direction: row;
+    align-items: flex-end;
+	margin-right: 70px;
+}
+
+.bouton_rouge
+{
+	height:25px ;
+    background: url('images/fond_degraderouge.png') repeat-x;
+    border: 1px solid #760001;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 3px 15px 0px 15px;
+    color: white;
+    text-decoration: none;
+	position: relative;
+	top: -10px;
+}
+/* main matter */
+iframe
+{
+	margin: 20px;
+}
+section
+{
+    width: 1500px;
+    margin: auto;
+	display: flex ;
+	flex-direction:row;
+	margin-bottom: 50 px;
+    justify-content: space-between;
+	align-items: flex-start;
+}
+article
+{
+	text-align:justify;
+	margin: 0 30px 0 0 ;
+}
+aside
+{
+    background-color: #CECECE;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.9em;
+}
+section em
+{
+	color: #DB1702;
+	font-size: 1.2em;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: bold;
+}
+section h3
+{
+	color:#568203 ;
+}
+section h4
+{
+	color: #003366;
+}
+table
+{
+    border-collapse: collapse;
+}
+td, th
+{
+    border: 1px solid black;
+	padding:15px ;
+}
+th 
+{
+	background-color:#003366;
+	color:white;
+}
+section a
+{
+	color: black;
+	text-decoration: none;
+}
+section a:hover
+{
+    border-bottom: 1px solid;
+}
+article h2
+{
+	text-decoration: none;
+}
+#sous_menu a 
+{
+	color:black;
+}
+article a
+{
+	color: #CC5500;
+}
+
+/* portal */
+#sous_menu
+{
+	display: flex;
+	flex-direction: row;
+	background-color: #F2F1EC;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 20px;
+	padding-right: 40px;
+	 align-items: center;
+	margin-bottom: 30px;
+}
+#sous_menu img
+{
+	border: 1px solid #181818;
+    margin: 10px 10px 10px 10px;
+}
+
+/* footer */
+#menu
+{
+	width: 100%;
+    display: flex;
+	justify-content: center;
+    flex-direction: row;
+	color: #FFFFFF;
+	background-color: #303030;
+}
+
+#menu #bloc
+{
+	margin: 0 30px 0 30px;
+}
+
+footer
+{
+	margin-top: 30px;
+}
+footer a 
+{
+	color: white;
+	text-decoration: none;
+}
+footer a:hover
+{
+	border-bottom: 1px solid;
+}
