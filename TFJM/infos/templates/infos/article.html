@@ -1,0 +1,17 @@
+{% extends "squelette.html" %}
+
+
+{% block article %}
+<h1> {{ article.titre }} </h1>
+
+{{ article.contenu|safe }}
+
+{% endblock %}
+
+
+{% block aside %}
+
+<img src="{{ article.sscat.cat.image.url }}" />
+	{{ article.sscat.cat.description|safe}}
+
+{% endblock %}

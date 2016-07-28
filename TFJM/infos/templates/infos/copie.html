@@ -1,0 +1,47 @@
+{% extends "squelette.html" %}
+
+
+{% block article %}
+<h1> {{categorie.nom}} </h1>
+	{% regroup articles by sscat as sscat_list %}
+	
+	{% for sscat in  sscat_list %}
+		<div id="sous_menu">
+			<img src="{{ sscat.list.0.sscat.image.url }}" />
+			<div>
+					<h3> {{sscat.grouper}} </h3>
+					<ul>
+					{% for article in sscat.list %}
+						<li><a href="{% url 'infos.views.article' article.slug %}">{{ article.titre }}</a></li>
+					{% endfor %}
+					</ul>
+			</div>
+		</div>
+	{% endfor %}
+	{% regroup liens by sscat as sscatLink_list %}
+	{% for sscat in  sscatLink_list %}
+		<div id="sous_menu">
+			<img src="{{ sscat.list.0.sscat.image.url }}" />
+			<div>
+					<h3> {{sscat.grouper}} </h3>
+					<ul>
+					{% for lien in sscat.list %}
+						{% if lien.isLienhttp == False %}
+							<li><a href="{{ lien.adresse.url }}">{{ lien.titre }}</a></li>
+						{% else %}
+							<li><a href="{{ lien.lienhttp }}">{{ lien.titre }}</a></li>
+						{% endif %}
+					{% endfor %}
+					</ul>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}
+
+
+{% block aside %}
+
+<img src="{{ categorie.image.url }}" />
+	{{categorie.description|safe}}
+
+{% endblock %}

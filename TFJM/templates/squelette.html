@@ -1,0 +1,89 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href=" {% static 'css/style.css' %}" />
+        <link rel="icon" href="{% static 'img/favicon.ico' %}" />
+		<link href='https://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+        <title>TFJM</title>
+    </head>
+    
+    <body>
+            <header>
+				{% block title %}
+               <div id="titre_principal">
+                        <img src="{% static "img/logo2.png" %}" alt="Logo TFJM" />
+                        <h1>Tournoi français des jeunes mathématiciens</h1> 
+                </div>
+                {% endblock %}
+                
+                <nav>
+					{% block nav %}
+                    <ul>
+                        <li><a href="{% url "infos.views.accueil" %}">Présentation</a></li>
+                        <li><a href="{% url 'infos.views.portail' "infos-pratiques" %}">Informations pratiques</a></li>
+                        <li><a href="{% url 'infos.views.portail' "editions-precedentes" %}">Editions précédentes</a></li>
+                        <li><a href="{% url 'infos.views.portail' "soutien" %}">Soutien</a></li>
+                    </ul>
+					<div id="inscription">
+						<span href="#" class="bouton_rouge">Inscription</span>
+
+						<ul>
+							<li><a href="">Etudiant</a></li>
+							<li><a href="">Jury</a></li>
+						</ul>
+					</div>
+					{% endblock %}
+                </nav>
+				
+				
+            </header>
+            
+            
+            <section>
+                <article>
+				{% block article %}
+				
+					<h1>Titre de l'article</h1>
+					Contenu
+					
+                {% endblock %}
+                </article>
+                <aside>
+				{% block aside %}
+                {% endblock %}
+                </aside>
+            </section>
+            
+            <footer>
+				<div id="menu">
+				<div id="bloc">
+					<h2>Nous contacter</h2>
+					<ul>
+						<li><a href="mailto:secretariat@tfjm.org">Par mail</a></li>
+						<li><a href="{% url 'infos.views.article' "organisation-du-tournoi" %}">Comité d'organisation du tournoi</a></li>
+						<li><a href="https://www.facebook.com/TFJM2"><img src="{% static "img/facebook.png" %}" alt="Facebook" /></a></li>
+					</ul>
+				</div>
+				<div id="bloc">
+					<h2>Soutenir le tournoi</h2>
+					<ul>
+						<li><a href="{% url 'infos.views.article' "nous-soutenir" %}">Comment nous soutenir?</a></li>
+						<li><a href="{% url 'infos.views.article' "partenaires-2015" %}">Partenaires 2015</a></li>
+						<li><a href="{% url 'infos.views.article' "partenaires-2014" %}">Partenaires 2014</a></li>
+					</ul>
+				</div>
+				<div id="bloc">
+				<h2>Presse</h2>
+					<ul>
+						<li><a href="{% static "files/TFJM2-DossierDePresse.pdf" %}">Notre dossier</a></li>
+						<li><a href="http://www.animath.fr/spip.php?article429">Quelques articles</a></li>
+						<li><a href="http://www.polytechnique.edu/fr/presse/ledition-2015-du-tournoi-des-jeunes-mathematiciennes-et-mathematiciens-accueillie-lx">Communiqué de Polytechnique</a></li>
+					</ul>
+				</div>
+				</div>
+				
+            </footer>
+    </body>
+</html>
