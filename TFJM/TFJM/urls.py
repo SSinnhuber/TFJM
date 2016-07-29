@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from . import settings
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include ('infos.urls')),
 ]
 
-if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):
+"""if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):
     media_url = getattr(settings, 'MEDIA_URL', '/media/').lstrip('/')
     urlpatterns = [
         url(r'^%s(?P<path>.*)$' % (media_url,), 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT
         }),
     ] + urlpatterns
+"""
