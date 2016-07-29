@@ -17,12 +17,14 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardi
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&a@rgwp832mtj9pmiyet()sm0*9_d-2i-@b*w%-epggwm-x882'
+#SECRET_KEY = '&a@rgwp832mtj9pmiyet()sm0*9_d-2i-@b*w%-epggwm-x882'
+with open('/etc/secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tfjm.org','tfjm2.org']
 
 
 # Application definition
