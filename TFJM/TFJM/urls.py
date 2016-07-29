@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^', include ('infos.urls')),
 ]
 
-if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):
+"""if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):
     media_url = getattr(settings, 'MEDIA_URL', '/media/').lstrip('/')
     urlpatterns = [
         url(r'^%s(?P<path>.*)$' % (media_url,), 'django.views.static.serve', {
@@ -31,3 +31,4 @@ if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):
         }),
     ] + urlpatterns
 
+"""
