@@ -1,5 +1,16 @@
 Pour lancer le serveur :
-./manage.py runserver
+
+Pour linux :
+./manage.py runserver (manage.py est exécutable)
+
+Pour windows :
+ouvrir l'invite de commande.
+rendez vous dans le dossier contenant le fichier manage.py grâce à la commande cd
+pour lancer le serveur : 
+python manage.py runserver
+(Si ce n'est pas déjà fait il faut bien sûr installer python)
+
+##################################################################################
 
 normalement l'application se lance dans le terminal.
 Pour consulter le site depuis un navigateur web,
