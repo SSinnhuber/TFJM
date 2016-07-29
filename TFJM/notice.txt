@@ -1,15 +1,17 @@
 Pour lancer le serveur :
 ./manage.py runserver
 
-normalement le truc se lance dans ton terminal
-Puis sur ton navigateur web
+normalement l'application se lance dans le terminal.
+Pour consulter le site depuis un navigateur web,
+taper dans la barre d'adresse :
 
 localhost:8000
 
-et tu tombe sur la page d'accueil
+ce qui charge la page d'accueil
 
-Pour créer une nouvelle page :
+Pour ouvrir l'outil d'édition :
+
 localhost:8000/admin
 
-tu te connectes,
-la suite est assez intuitive normalement.
+et se connecter avec le login/mdp fournis.
+(en profiter pour modifier le mot de passe)
