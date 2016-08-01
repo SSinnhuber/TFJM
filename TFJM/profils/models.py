@@ -4,13 +4,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.files import File
 from django.db.models.signals import post_save
-from TFJM import settings
 import os
 
 class Profil (models.Model):
 	user = models.OneToOneField (User)
 	img = models.ImageField (blank=True)
-	id_user = models.IntegerField ()
+	id_user = models.IntegerField (unique=True)
 	
 	def __str__ (self) :
 		return self.user.username
@@ -29,7 +28,6 @@ class Profil (models.Model):
 def create_profil (sender, instance, **kwargs):
 	if len (Profil.objects.filter (user=instance) ) == 0 :
 		pr = Profil (user=instance)
-		pr.img = File(open(os.path.join (settings.BASE_DIR, 'static/img/profil_default.png'), 'r'))
 		pr.save ()
 
 post_save.connect(create_profil, sender=User)

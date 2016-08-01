@@ -1,0 +1,16 @@
+{% extends "profils/squelette.html" %}
+
+{% block content %}
+{% if profil.img != None %}
+	<img src="{{ profil.img.url }}" />
+{% else %}
+	<img src="/static/img/profil_default.png" />
+	<div>
+{% endif %}
+<p>	utilisateur : {{ profil.user.username }}</p>
+
+
+
+</div>
+	
+{% endblock %}

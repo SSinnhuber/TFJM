@@ -16,7 +16,8 @@
 				<div id="bandeau_connexion">
 					
 					{% if user.is_authenticated %}
-					Vous êtes actuellement connecté en tant que {{ user.username }} (<a href="/profil/deconnexion/">Déconnexion</a>)
+						
+					Vous êtes actuellement connecté en tant que <a href="/profil/me/">{{ user.username }}</a> (<a href="/profil/deconnexion/">Déconnexion</a>)
 					{% else %}
 					Vous êtes actuellement non connecté (<a href="/profil/connexion/">Connexion</a>)
 					{% endif %}

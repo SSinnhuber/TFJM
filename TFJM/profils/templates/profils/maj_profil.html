@@ -1,0 +1,30 @@
+{% extends "profils/squelette.html" %}
+
+{% block content %}
+
+{% if maj_terminee %}
+
+	<p>Mise à jour des données de l'utilisateur effectuée</p>
+
+{% else %}
+
+	<form method="post" action="/profil/maj-profil/">
+	<fieldset>
+		<legend>Modifier le profil</legend>
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		<input type="submit" value="Mettre à jour le profil" />
+	</fieldset>
+	</form>
+	
+	{% if error %}
+	
+		<p><b>Erreur : </b> paramètres incorrects lors de la mise à jour des données du profil
+	
+	{% endif %}
+
+{% endif%}
+
+{% endblock %}

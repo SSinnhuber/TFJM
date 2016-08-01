@@ -1,5 +1,5 @@
 from django import forms
-
+from models import Profil
 
 class ConnexionForm (forms.Form):
 	username = forms.CharField (label="Nom d'utilisateur", max_length=30)
@@ -12,3 +12,9 @@ class InscriptionForm (forms.Form):
 	prenom = forms.CharField (label="Prenom", max_length=30)
 	nom = forms.CharField (label="Nom", max_length=30)
 	email = forms.EmailField (label="Adresse mail")
+
+class ProfilForm(forms.Form):
+	prenom = forms.CharField (label="Prenom", max_length=30, required=False)
+	nom = forms.CharField (label="Nom", max_length=30, required=False)
+	email = forms.EmailField (label="Adresse mail", required=True)
+	img = forms.ImageField (label="Avatar", required=False)
