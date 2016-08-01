@@ -18,7 +18,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardi
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['tfjm.org','tfjm2.org']
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'infos',
+    'profils',
 ]
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
