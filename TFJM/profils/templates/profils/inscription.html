@@ -1,0 +1,34 @@
+{% extends "profils/squelette.html" %}
+
+{% block article %}
+
+<h1>Inscription</h1>
+
+{% if not error and not diff and not already_exist and new_user != None %}
+
+	Votre nouveau profil vient d'être créé {{ new_user.username }} !
+
+{% else %}
+	
+	{% if diff == True %}
+		<p><b>Erreur : les deux mots de passe entrés sont différents</b></p>
+	{% endif %}
+	{% if error == True %}
+		<p> Erreur lors de la création du profil</p>
+	{% endif %}
+	<form method="post" action="/profil/inscription/">
+	<fieldset>
+		<legend>Nouveau? Inscrivez-vous</legend>
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		<input type="submit" value="S'inscrire" />
+	</fieldset>
+	
+	</form>
+
+{% endif %}
+
+{% endblock%}
+

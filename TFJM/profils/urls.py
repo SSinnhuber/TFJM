@@ -23,5 +23,7 @@ urlpatterns = [
 	url(r'^password_reset_complete/$', auth_views.password_reset_complete,
 		{'template_name': 'profils/password_reset_complete.html'},
 		name='password_reset_complete'),
+	# url(r'^user/(?P<id_user>\d+)/$', views.user),
+	url (r'^inscription/$', views.inscription),
 ]
 	
