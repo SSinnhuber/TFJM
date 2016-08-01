@@ -9,13 +9,26 @@ body
 
 header
 {
+	width: 100%;
     display: flex;
 	flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 	margin: 0 0 20px 0 ;
 }
-
+#bandeau_connexion
+{
+	width: 100%;
+	color: #FFFFFF;
+	background-color: black;
+	padding: 5px 0 5px 0;
+	text-align: right;
+}
+#bandeau_connexion a
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
 #titre_principal
 {
 	width: 100%;
@@ -177,7 +190,16 @@ section a:hover
 {
     border-bottom: 1px solid;
 }
-
+form
+{
+	align:left;
+}
+label {
+  display: inline-block;
+  vertical-align: top;
+  margin: 6px;
+  width: 170px;
+}
 #sous_menu a 
 {
 	color:black;

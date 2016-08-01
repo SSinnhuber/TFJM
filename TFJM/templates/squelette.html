@@ -11,6 +11,19 @@
     
     <body>
             <header>
+				
+				{% block connexion %}
+				<div id="bandeau_connexion">
+					
+					{% if user.is_authenticated %}
+					Vous êtes actuellement connecté en tant que {{ user.username }} (<a href="/profil/deconnexion/">Déconnexion</a>)
+					{% else %}
+					Vous êtes actuellement non connecté (<a href="/profil/connexion/">Connexion</a>)
+					{% endif %}
+					
+				</div>
+				{% endblock %}
+				
 				{% block title %}
                <div id="titre_principal">
                         <img src="{% static "img/logo2.png" %}" alt="Logo TFJM" />
@@ -42,6 +55,7 @@
             
             
             <section>
+			{% block content %}
                 <article>
 				{% block article %}
 				
@@ -54,6 +68,7 @@
 				{% block aside %}
                 {% endblock %}
                 </aside>
+            {% endblock %}
             </section>
             
             <footer>

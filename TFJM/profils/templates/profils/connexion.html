@@ -1,0 +1,37 @@
+{% extends "squelette.html" %}
+{% load staticfiles %}
+
+{% block article %}
+
+<h1>Connection</h1>
+
+{% if user.is_authenticated %}
+
+Vous êtes connecté, {{ user.username }} !
+
+{% else %}
+
+<form method="post" action="/profil/connexion/">
+<fieldset>
+    <legend>Connexion</legend>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Se connecter" />
+</fieldset>
+</form>
+{% if error %}
+
+<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+
+{% endif %}
+
+{% endif %}
+
+{% endblock%}
+
+{% block aside %}
+<img src="{% static 'img/photos/utilisateur.jpg' %}" />
+<h1>Gestion d'utilisateur</h1>
+{% endblock %}
