@@ -1,0 +1,15 @@
+{% extends "profils/squelette.html" %}
+
+
+{% block article %}
+<form method="post" action="/profil/pass_change/">
+<fieldset>
+    <legend>Connexion</legend>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type="submit" value="Changer mot de passe" />
+</fieldset>
+</form>
+{% endblock %}

@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include ('infos.urls')),
-    url(r'^profil', include ('profils.urls')),
+    url(r'^profil/', include ('profils.urls')),
 ]
 
 if getattr(settings, 'DEBUG', False) or getattr(settings, 'DEBUG_MEDIA', False):

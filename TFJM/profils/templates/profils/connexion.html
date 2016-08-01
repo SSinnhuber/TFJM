@@ -1,5 +1,4 @@
-{% extends "squelette.html" %}
-{% load staticfiles %}
+{% extends "profils/squelette.html" %}
 
 {% block article %}
 
@@ -31,7 +30,3 @@ Vous êtes connecté, {{ user.username }} !
 
 {% endblock%}
 
-{% block aside %}
-<img src="{% static 'img/photos/utilisateur.jpg' %}" />
-<h1>Gestion d'utilisateur</h1>
-{% endblock %}
