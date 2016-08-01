@@ -194,6 +194,11 @@ form
 {
 	align:left;
 }
+legend
+{
+	font-size: 1.4em;
+	color: #CC0000;
+}
 label {
   display: inline-block;
   vertical-align: top;

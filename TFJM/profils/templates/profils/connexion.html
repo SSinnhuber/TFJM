@@ -6,25 +6,28 @@
 
 {% if user.is_authenticated %}
 
-Vous êtes connecté, {{ user.username }} !
+	Vous êtes connecté, {{ user.username }} !
 
 {% else %}
 
-<form method="post" action="/profil/connexion/">
-<fieldset>
-    <legend>Connexion</legend>
-    {% csrf_token %}
+	<form method="post" action="/profil/connexion/">
+	<fieldset>
+		<legend>Connectez-vous</legend>
+		{% csrf_token %}
 
-    {{ form.as_p }}
+		{{ form.as_p }}
 
-    <input type="submit" value="Se connecter" />
-</fieldset>
-</form>
-{% if error %}
+		<input type="submit" value="Se connecter" />
+		<p><a href="/profil/pass_reset/">Mot de passe oublié?</a></p>
+	</fieldset>
+	
+	</form>
+	
+	{% if error %}
 
-<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
-
-{% endif %}
+		<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+		
+	{% endif %}
 
 {% endif %}
 
