@@ -78,6 +78,7 @@ def inscription (request) :
 		new_user = None
 	return render(request, 'profils/inscription.html', locals())
 
+@login_required
 def user (request, id_user) :
 	profil = get_object_or_404 (Profil, id_user=id_user)
 	return render(request, 'profils/profil.html', locals())
