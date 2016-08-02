@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'infos',
     'profils',
 	'easy_thumbnails',
+	'django.contrib.humanize',
 ]
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

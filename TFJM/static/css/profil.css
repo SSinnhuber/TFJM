@@ -1,0 +1,79 @@
+#profil
+{
+	width: 95%;
+	background-color: #E9E9E9;
+	margin: 30px;
+	padding: 30px;
+	box-shadow: 0px 2px 3px #1c1a19;
+    border-radius: 10px;
+    display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+#profil #fiche
+{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+#profil #avatar
+{
+	display: flex;
+	flex-direction: column;
+	width: 240px;
+	text-align: justify;
+	font-size: 0.9em;
+}
+#profil img
+{
+	box-shadow: 0px 2px 3px #1c1a19;
+    border-radius: 5px;
+}
+#profil #fiche_infos
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+}
+
+#profil #entree
+{	
+	margin-bottom: 10px;
+	width: 90%;
+	background-color: #F9F9F9;
+	box-shadow: 0px 2px 3px #1c1a19;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+#profil #bio
+{
+	border: 3px black double;
+	margin: 5px;
+	padding: 5px;
+	background-color: white;
+	border-color: black;
+	text-align: justify;
+}
+#profil #bouton_maj
+{
+	box-shadow: 0px 2px 3px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px;
+    font-size: 1.3em;
+    background-color: #003366;
+    text-align: center;
+    width: 90%;
+}
+#profil #bouton_maj a
+{
+	color: white;
+}
