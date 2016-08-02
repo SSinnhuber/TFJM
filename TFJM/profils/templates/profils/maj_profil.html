@@ -1,14 +1,9 @@
 {% extends "profils/squelette.html" %}
 
-{% block content %}
+{% block article %}
 
-{% if maj_terminee %}
 
-	<p>Mise à jour des données de l'utilisateur effectuée</p>
-
-{% else %}
-
-	<form method="post" action="/profil/maj-profil/">
+	<form enctype="multipart/form-data" method="post" action="/profil/maj-profil/">
 	<fieldset>
 		<legend>Modifier le profil</legend>
 		{% csrf_token %}
@@ -25,6 +20,6 @@
 	
 	{% endif %}
 
-{% endif%}
+
 
 {% endblock %}

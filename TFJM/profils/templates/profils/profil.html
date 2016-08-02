@@ -1,14 +1,24 @@
 {% extends "profils/squelette.html" %}
+{% load thumbnail %}
 
 {% block content %}
-{% if profil.img != None %}
-	<img src="{{ profil.img.url }}" />
-{% else %}
-	<img src="/static/img/profil_default.png" />
-	<div>
-{% endif %}
-<p>	utilisateur : {{ profil.user.username }}</p>
 
+	{% if profil.img %}
+			{% thumbnail profil.img 240x240 crop=True upscale as thumb %}	
+		<img src="{{thumb.url}}" />
+			
+	{% else %}
+	
+		<img src='/static/img/profil_default.png'/>
+		
+	{% endif %}
+	<div>
+
+<p>	utilisateur : {{ profil.user.username }}</p>
+<p>prénom : {{ profil.user.first_name }}</p>
+<p>nom : {{ profil.user.last_name }}</p>
+<p>Bio : {{ profil.bio }}</p>
+<p><a href="/profil/maj-profil/">Mettre à jour le profil</a></p>
 
 
 </div>

@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from PIL import Image
 
@@ -84,6 +85,7 @@ def user (request, id_user) :
 @login_required
 def me (request) :
 	profil = get_object_or_404 (Profil, user=request.user)
+	print (profil.img)
 	return render(request, 'profils/profil.html', locals())
 
 def create_thumbnail (img_url) :
@@ -95,25 +97,28 @@ def create_thumbnail (img_url) :
 	
 @login_required
 def maj_profil(request):
-	maj_terminee = False
 	error = False
 	profil = get_object_or_404 (Profil, user=request.user)
 	if request.method == 'POST':
 		form = ProfilForm(request.POST, request.FILES)
 		if form.is_valid():
-			profil.prenom = form.cleaned_data['prenom']
-			profil.nom = form.cleaned_data['nom']
-			profil.email = form.cleaned_data['email']
-			profil.img = form.cleaned_data['img']
+			profil.user.first_name = form.cleaned_data['prenom']
+			profil.user.last_name = form.cleaned_data['nom']
+			profil.user.email = form.cleaned_data['email']
+			profil.bio = form.cleaned_data['bio']
+			if not (form.cleaned_data['img'] is None) :
+				profil.img = form.cleaned_data['img']
+			profil.user.save()
 			profil.save()
-			maj_terminee = True
+			return redirect (me)
 		else :
 			error = True
 	else:
 		data = {'prenom': profil.user.first_name,
 				'nom': profil.user.last_name,
 				'email': profil.user.email,
-				'img': profil.img,
+				'bio': profil.bio,
 				}
+	#	file_data = {'img': SimpleUploadedFile(profil.img.url, profil.img.read())}
 		form = ProfilForm(data)
 	return render(request, 'profils/maj_profil.html', locals())

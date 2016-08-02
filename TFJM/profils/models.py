@@ -8,7 +8,8 @@ import os
 
 class Profil (models.Model):
 	user = models.OneToOneField (User)
-	img = models.ImageField (blank=True)
+	img = models.ImageField (upload_to="profil", blank=True)
+	bio = models.TextField (blank=True)
 	id_user = models.IntegerField (unique=True)
 	
 	def __str__ (self) :

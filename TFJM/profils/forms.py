@@ -18,3 +18,4 @@ class ProfilForm(forms.Form):
 	nom = forms.CharField (label="Nom", max_length=30, required=False)
 	email = forms.EmailField (label="Adresse mail", required=True)
 	img = forms.ImageField (label="Avatar", required=False)
+	bio = forms.CharField (label="Bio", widget=forms.Textarea, required=False)
