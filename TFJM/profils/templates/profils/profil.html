@@ -16,6 +16,9 @@
 				<img src='/static/img/profil_default.png'/>
 		
 			{% endif %}
+			{% if profil.user.is_staff %}
+				<div id="admin">Administrateur</div>
+			{% endif %}
 			<p>Dernière connection {{ profil.user.last_login|naturaltime}}</p>
 			<p>Utilisateur inscrit le {{ profil.user.date_joined }}</p>
 		</div>
@@ -25,14 +28,17 @@
 			<div id="entree"><b>utilisateur :</b><br/> {{ profil.user.username }}</div>
 			<div id="entree"><b>prénom :</b><br/> {{ profil.user.first_name }}</div>
 			<div id="entree"><b>nom :</b><br/> {{ profil.user.last_name }}</div>
+			{% if request.user.is_staff %}
+				<div id="entree"><b>email :</b><br/>{{ profil.user.email }}</div>
+			{% endif %}
 			<div id="entree"><b>Bio :</b>
 				<div id="bio">{{ profil.bio }}</div>
 			</div>
 
 		</div>
 	</div>
-	
+	{% if profil.user == request.user %}
 	<div id="bouton_maj"><a href="/profil/maj-profil/">Mettre à jour le profil</a></div>
-
+	{% endif %}
 </div>
 {% endblock %}
