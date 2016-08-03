@@ -21,3 +21,12 @@ label
   margin: 6px;
   width: 170px;
 }
+#bouton_envoi
+{
+	background-color: #003366;
+	box-shadow: 0px 2px 3px #1c1a19;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	border:none;
+}

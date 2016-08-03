@@ -1,0 +1,40 @@
+{% extends "squelette.html" %}
+{% load thumbnail %}
+{% load humanize %}
+
+{% block content %}
+
+<div id="forum">
+	<div id="message">
+		
+		<div id="infos">
+			<a href="/profil/user/{{ msg.auteur.id_user }}">{{ msg.auteur.user.username }}</a>
+			<div id="avatar">
+				{% if msg.auteur.img %}
+			
+					{% thumbnail msg.auteur.img 140x140 crop=True upscale as thumb %}	
+					<img src="{{thumb.url}}" />
+				
+				{% else %}
+	
+					<img src='/static/img/profil_default.png'/>
+		
+				{% endif %}
+				{% if msg.auteur.user.is_staff %}
+					<div id="admin">Administrateur</div>
+				{% endif %}
+			</div>
+		</div>
+		
+		<div id="contenu">
+			<div id="infos_msg">
+				Message publié par {{ msg.auteur.user.username }} dans {{ msg.sujet.titre }} {{msg.date_creation|naturaltime}} ({{ msg.date_creation }})
+			</div>
+			<p>{{ msg.contenu }}</p>
+		</div>
+		
+	</div>
+
+</div>
+
+{% endblock %}

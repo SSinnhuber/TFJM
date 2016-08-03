@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'django.contrib.humanize',
+	'easy_thumbnails',
     'infos',
     'profils',
-	'easy_thumbnails',
-	'django.contrib.humanize',
+    'forum',
 ]
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
