@@ -21,8 +21,11 @@
 		
 				{% endif %}
 				</span>
+			{% if admin == True %}
+				<div id="bouton_suppr"><a href="/forum/suppr-sujet/{{ sujet.id_topic }}/"><img src="/static/img/suppr.png"/></a></div>
+			{% endif %}
 		</div>	
-	
+		
 	{% endfor %}
 	<div id="bouton_ajouter"><a href="/forum/nouveau-sujet/">Créer un nouveau sujet</a></div>
 </div>

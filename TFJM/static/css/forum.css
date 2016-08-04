@@ -162,6 +162,11 @@
 {
 	border: solid black 1px;
 }
+#sujet #bouton_suppr a:hover
+{
+	text-decoration: none;
+	border: none;
+}
 #forum #bouton_ajouter
 {
 	box-shadow: 0px 2px 3px #1c1a19;

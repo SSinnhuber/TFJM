@@ -9,4 +9,5 @@ urlpatterns = [
 	url(r'^reponse/(?P<id_topic>\d+)/$', views.reponse),
 	url(r'^suppr-message/(?P<id_message>\d+)/$', views.suppr_message),
 	url(r'^nouveau-sujet/$', views.nouveau_sujet),
+	url(r'^suppr-sujet/(?P<id_topic>\d+)/$', views.suppr_sujet),
 ]

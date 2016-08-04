@@ -25,6 +25,9 @@ def forum (request):
 		n = len (Message.objects.filter (sujet=sj) )
 		n_message.append ( n )
 	liste = zip (sujets, n_message)
+	admin=False
+	if request.user.is_authenticated () and request.user.is_staff :
+		admin = True
 	return render (request, 'forum/forum.html', locals ())
 
 @login_required
@@ -78,4 +81,9 @@ def nouveau_sujet (request) :
 		form = SujetForm()
 	return render(request, 'forum/nouveau.html', locals())
 	
-	
+@login_required
+def suppr_sujet (request, id_topic):
+	if request.user.is_staff :
+		sj = get_object_or_404 (Sujet, id_topic=id_topic)
+		sj.delete ()
+		return redirect (forum)
