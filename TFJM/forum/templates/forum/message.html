@@ -30,7 +30,7 @@
 			<div id="infos_msg">
 				Message publié par {{ msg.auteur.user.username }} dans {{ msg.sujet.titre }} {{msg.date_creation|naturaltime}} ({{ msg.date_creation }})
 			</div>
-			<p>{{ msg.contenu }}</p>
+			<p>{{ msg.contenu|linebreaks }}</p>
 		</div>
 		
 	</div>

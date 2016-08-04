@@ -3,11 +3,13 @@ from __future__ import unicode_literals
 from django.db import models
 
 from profils.models import Profil
+from datetime import datetime    
 
 class Sujet (models.Model) :
 	titre = models.CharField (max_length=30)
-	id_topic = models.IntegerField (unique=True)
-	
+	id_topic = models.IntegerField (unique=True, blank=True)
+	date_dernier_message = models.DateTimeField (default=datetime.now, blank=True)
+	createur = models.ForeignKey (Profil)
 	def __unicode__ (self):
 		return self.titre
 	
@@ -18,12 +20,16 @@ class Sujet (models.Model) :
 			if len(topics) == 0 :
 				n_max = 0
 			else :
-				n_max = topics[0].id_message
+				n_max = topics[0].id_topic
 			self.id_topic = n_max+1
 		super (Sujet, self).save (*args, **kwargs)
 
+
+
+
+
 class Message (models.Model):
-	auteur = models.OneToOneField (Profil)
+	auteur = models.ForeignKey (Profil)
 	contenu = models.TextField (blank=False)
 	sujet = models.ForeignKey (Sujet)
 	date_creation = models.DateTimeField (auto_now=False, auto_now_add=True)
@@ -41,4 +47,5 @@ class Message (models.Model):
 			else :
 				n_max = msg[0].id_message
 			self.id_message = n_max+1
+			self.sujet.date_dernier_message = self.date_creation
 		super (Message, self).save (*args, **kwargs)

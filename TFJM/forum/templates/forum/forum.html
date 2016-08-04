@@ -1,0 +1,30 @@
+{% extends "squelette.html" %}
+{% load thumbnail %}
+{% load humanize %}
+
+{% block content %}
+
+<div id="forum">
+	<h1>Liste des sujets du forum</h1>
+	{% for sujet, n in liste %}
+	
+		<div id=sujet>
+			<span id="titre"><a href="/forum/topic/{{ sujet.id_topic }}">{{ sujet.titre }}</a></span> <span id="infos">Messages écrits : {{ n }}</span><span id="infos">Dernière modification le : {{ sujet.date_dernier_message }}</span> <span id="createur">Créé par <a href="/profil/user/{{ sujet.createur.id_user }}"> {{ sujet.createur }}</a>
+			{% if sujet.createur.img %}
+			
+					{% thumbnail sujet.createur.img 40x40 crop=True upscale as thumb %}	
+					<a href="/profil/user/{{ sujet.createur.id_user }}"><img src="{{thumb.url}}" /></a>
+				
+				{% else %}
+	
+					<a href="/profil/user/{{ sujet.createur.id_user }}"><img src='/static/img/profil_default.png'/></a>
+		
+				{% endif %}
+				</span>
+		</div>	
+	
+	{% endfor %}
+	
+</div>
+
+{% endblock %}
