@@ -34,7 +34,7 @@
 				<div id="infos_msg">
 					<a href="/forum/message/{{ msg.id_message }}">Message publié par {{ msg.auteur.user.username }} dans {{ msg.sujet.titre }} {{msg.date_creation|naturaltime}} ({{ msg.date_creation }})</a>
 				</div>
-				<p>{{ msg.contenu|linebreaks }}</p>
+				{{ msg.contenu|linebreaks }}
 				
 			</div>
 			{% if admin == True and msg != messages.0 %}

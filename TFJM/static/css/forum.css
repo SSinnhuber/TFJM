@@ -63,6 +63,8 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 80%;
+	font-family: 'Courier New', sans-serif;
+	font-size: 1.1em;
 }
 #message #contenu p
 {

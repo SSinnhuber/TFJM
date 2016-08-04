@@ -10,5 +10,8 @@ class MessageAdmin(admin.ModelAdmin):
 	ordering       = ('id_message', )#'date_creation',)
 	search_fields  = ('auteur', 'sujet',)
    
-admin.site.register (Sujet, SujetAdmin)
-admin.site.register (Message, MessageAdmin)
+#admin.site.register (Sujet, SujetAdmin)
+#admin.site.register (Message, MessageAdmin)
+
+# eviter de modifier les sujets/messages via les pages admin.
+# on preferera le faire directement depuis les pages forum
