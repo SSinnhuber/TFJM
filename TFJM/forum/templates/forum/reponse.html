@@ -1,0 +1,25 @@
+{% extends "squelette.html" %}
+
+{% block article %}
+
+
+	<form method="post" action="/forum/reponse/{{ id_topic }}/">
+	<fieldset>
+		<legend>Répondez au sujet</legend>
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		<input type="submit" value="Poster" id="bouton_post" />
+	</fieldset>
+	</form>
+	
+	{% if error %}
+
+		<p><strong>Réponse invalide !</strong></p>
+		
+	{% endif %}
+
+
+{% endblock%}
+

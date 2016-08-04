@@ -6,6 +6,7 @@
 
 <div id="forum">
 	<h1>[sujet] {{ sujet.titre }}</h1>
+	<a href="/forum/">&#8592; Retour aux sujets</a>
 	{% for msg in messages %}
 	
 		<div id="message">
@@ -34,12 +35,15 @@
 					<a href="/forum/message/{{ msg.id_message }}">Message publié par {{ msg.auteur.user.username }} dans {{ msg.sujet.titre }} {{msg.date_creation|naturaltime}} ({{ msg.date_creation }})</a>
 				</div>
 				<p>{{ msg.contenu|linebreaks }}</p>
+				
 			</div>
-			
+			{% if admin == True and msg != messages.0 %}
+				<div id="bouton_suppr"><a href="/forum/suppr-message/{{ msg.id_message }}/"><img src="/static/img/suppr.png"/></a></div>
+			{% endif %}
 		</div>
 		
 	{% endfor %}
-	
+	<div id="bouton_repondre"><a href="/forum/reponse/{{ sujet.id_topic }}">Répondre</a></div>
 </div>
 
 {% endblock %}
