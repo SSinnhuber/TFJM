@@ -19,7 +19,7 @@ def topic (request, id_topic):
 	return render (request, 'forum/topic.html', locals ())
 
 def forum (request):
-	sujets = Sujet.objects.all ().order_by ('date_dernier_message')
+	sujets = Sujet.objects.all ().order_by ('-date_dernier_message')
 	n_message = []
 	for sj in sujets :
 		n = len (Message.objects.filter (sujet=sj) )
