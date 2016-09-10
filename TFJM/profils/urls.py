@@ -3,6 +3,10 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
+# il est nécessaire de recoder les templates des gestion d'User sans quoi django appelle les templates par défaut
+# qui n'utilisent pas les même fichiers de style que le reste du site
+
+# ! pb de l'envoi de mail à régler
 urlpatterns = [
 	url(r'^', include('django.contrib.auth.urls')),
 	url (r'^connexion/', views.connexion, name='connexion'),
