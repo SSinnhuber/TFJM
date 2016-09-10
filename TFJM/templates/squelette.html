@@ -15,18 +15,6 @@
     <body>
             <header>
 				
-				{% block connexion %}
-				<div id="bandeau_connexion">
-					
-					{% if user.is_authenticated %}
-						
-					Vous êtes actuellement connecté en tant que <a href="/profil/me/">{{ user.username }}</a> (<a href="/profil/deconnexion/">Déconnexion</a>)
-					{% else %}
-					Vous êtes actuellement non connecté (<a href="/profil/connexion/">Connexion</a>)
-					{% endif %}
-					
-				</div>
-				{% endblock %}
 				
 				{% block title %}
                <div id="titre_principal">
@@ -80,7 +68,6 @@
 				<div id="bloc">
 					<h2>Nous contacter</h2>
 					<ul>
-						<li><a href="{% url 'forum.views.forum' %}">Forum</a></li>
 						<li><a href="mailto:secretariat@tfjm.org">Par mail</a></li>
 						<li><a href="{% url 'infos.views.article' "organisation-du-tournoi" %}">Comité d'organisation du tournoi</a></li>
 						<li><a href="https://www.facebook.com/TFJM2"><img src="{% static "img/facebook.png" %}" alt="Facebook" /></a></li>

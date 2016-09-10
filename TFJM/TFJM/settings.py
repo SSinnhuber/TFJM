@@ -41,8 +41,8 @@ INSTALLED_APPS = [
 	'django.contrib.humanize',
 	'easy_thumbnails',
     'infos',
-    'profils',
-    'forum',
+    #'profils',
+    #'forum',
 ]
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,7 +123,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 if DEBUG:
@@ -138,3 +137,4 @@ MEDIA_URL = '/media/'
 
 # Link to the connexion page
 LOGIN_URL = '/profil/connexion/'
+
