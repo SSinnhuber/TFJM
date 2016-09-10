@@ -8,6 +8,7 @@ def accueil (request) :
 	return render (request, 'infos/accueil.html', {})
 
 def portail (request, nom_portail):
+# affiche la liste des ss-categorie, et les liens correspondants
 	categorie = get_object_or_404(models.Categorie, slug=nom_portail)
 	sscategories = models.Sscategorie.objects.filter (cat=categorie)
 	liens = []
@@ -17,6 +18,7 @@ def portail (request, nom_portail):
 		articles.append( models.Article.objects.filter(sscat = sc) )
 		liens.append ( models.Lien.objects.filter (sscat = sc) )
 	listes = zip (sscategories, articles, liens)
+	# il faut regrouper au sein dans une meme ss-categorie les modeles de Lien et Article attaches
 	return render (request, 'infos/portail.html', locals())
 
 def article (request, nom_article):
